@@ -1,0 +1,808 @@
+Part 1: Pointer Arithmetic & Array Equivalence (20 Challenges)
+1.
+
+C
+int arr[] = {10, 20, 30};
+int *p = arr;
+printf("%d", *p++);
+2.
+
+C
+int arr[] = {10, 20, 30};
+int *p = arr;
+printf("%d", *++p);
+3.
+
+C
+int arr[] = {10, 20, 30};
+int *p = arr;
+printf("%d", ++*p);
+4.
+
+C
+int arr[] = {10, 20, 30};
+int *p = arr;
+printf("%d", (*p)++);
+5.
+
+C
+int arr[] = {1, 2, 3, 4, 5};
+int *p = &arr[2];
+printf("%d", p[-1]);
+6.
+
+C
+int a = 10;
+int *p = &a;
+int **pp = &p;
+printf("%d", **pp);
+7.
+
+C
+int arr[5] = {0};
+printf("%d", *(arr + 2));
+8.
+
+C
+char *s = "Hello";
+printf("%c", *s + 1);
+9.
+
+C
+int arr[] = {10, 20, 30};
+printf("%d", *(arr + 1) + *(arr + 2));
+10.
+
+C
+int x = 5;
+int *p = &x;
+int *q = p;
+*q = 10;
+printf("%d", *p);
+11.
+
+C
+int arr[] = {1, 2, 3};
+printf("%d", 1[arr]);
+12.
+
+C
+int *p = NULL;
+printf("%p", (void*)p);
+13.
+
+C
+int arr[] = {10, 20, 30};
+int *p = arr;
+p += 2;
+printf("%d", *p);
+14.
+
+C
+int a = 5;
+int *p = &a;
+printf("%lu", sizeof(p));
+15.
+
+C
+int arr[] = {1, 2, 3};
+printf("%lu", sizeof(arr));
+16.
+
+C
+int arr[] = {10, 20, 30};
+int *p = arr;
+printf("%d", *p + 2);
+17.
+
+C
+int a = 10;
+int *p = &a;
+p++;
+printf("%p", (void*)p); // What is the relationship to original address?
+18.
+
+C
+int arr[3] = {1, 2, 3};
+printf("%d", *(&arr + 1) - arr);
+19.
+
+C
+int *p;
+p = (int*)malloc(sizeof(int));
+*p = 10;
+free(p);
+printf("%d", *p);
+20.
+
+C
+int a = 10;
+int *const p = &a;
+p++;
+
+Part 2: Pointer Arithmetic & Memory Layout (20 Questions)
+What is the difference between const int *p and int *const p?
+
+How does void * pointer arithmetic behave compared to int *?
+
+What happens if you subtract two pointers that point to different arrays?
+
+Can you assign a float * to an int * without casting?
+
+Explain the behavior of p = p + 1 versus p++.
+
+What is the value of &arr[i] - &arr[j]?
+
+How do you declare a pointer to an array of 5 integers?
+
+What is the difference between &p and p where p is a pointer?
+
+Why does arr++ result in a compilation error?
+
+How do you access the ith element of a 2D array using only a single pointer?
+
+What is the address increment when you do ptr++ for a double *ptr?
+
+What is a "Wild Pointer" and how is it different from a "Dangling Pointer"?
+
+Can you have a pointer to a pointer to a pointer? Provide a sample declaration.
+
+What is the purpose of the ptrdiff_t type?
+
+How does the compiler treat *(arr + i) vs arr[i] internally?
+
+What is the result of &(*p)?
+
+How to check if a pointer is aligned to a 4-byte boundary?
+
+Explain int (*f)(int) vs int *f(int).
+
+Can you perform pointer arithmetic on a NULL pointer?
+
+What is the effect of casting a pointer to an integer and back?
+
+Part 3: Dynamic Memory Allocation (20 Questions)
+What is the return type of malloc()?
+
+What happens if malloc() fails to allocate memory?
+
+What is the difference between malloc(0) and malloc(1)?
+
+Why must you typecast the return value of malloc in C++ but not C?
+
+What is the difference in memory content between malloc and calloc?
+
+How does realloc() behave if the new size is smaller than the original?
+
+What happens to the original pointer if realloc() moves the memory block?
+
+What is a "Memory Leak" and how do you detect one?
+
+Can you free() a pointer that was not allocated by malloc/calloc/realloc?
+
+What happens if you free() a NULL pointer?
+
+What is the "Heap" and how does it grow?
+
+How does alloca() differ from malloc()?
+
+What is "Fragmentation" in dynamic memory allocation?
+
+Can you use realloc() to shrink a buffer?
+
+Is it safe to dereference a pointer after free()?
+
+How does the system track the size of allocated blocks?
+
+What is the risk of using realloc() on a pointer variable without a temporary variable?
+
+Explain the "Double Free" vulnerability.
+
+How does calloc calculate the total size?
+
+What is the difference between static memory allocation and dynamic?
+
+Part 4: Advanced Pointer Concepts (20 Questions)
+What is the difference between char *p = "Hello" and char p[] = "Hello"?
+
+Why can't you modify string literals?
+
+Explain the "decay" of an array into a pointer.
+
+What is a function pointer and why would you use one?
+
+How do you create an array of function pointers?
+
+What is the this pointer in the context of C-style object simulation?
+
+Can you pass a multi-dimensional array to a function? How?
+
+What is an "Opaque Pointer"?
+
+What is a "Smart Pointer" in C (simulated)?
+
+How do you implement a generic pointer (like void *) in a function?
+
+What is the restrict keyword and how does it help pointers?
+
+What is volatile in the context of pointer access?
+
+How do you iterate through a linked list using pointers?
+
+What is an "Offset" in pointer arithmetic?
+
+Can a pointer point to a variable on the stack?
+
+What is the difference between int *p and int p[] as function parameters?
+
+How to simulate a "Reference" in C?
+
+What is the __attribute__((packed))?
+
+How do you inspect memory using a debugger like gdb?
+
+What is a "Near" vs "Far" pointer (historical context)?
+
+Part 5: Debugging & Pitfalls (20 Questions)
+What is a "Buffer Overflow" and how do pointers enable it?
+
+How do you safely check for NULL before dereferencing?
+
+What is the danger of gets()?
+
+How does scanf() use pointers to return values?
+
+What is the "Strict Aliasing Rule" in C?
+
+How to find the end of an array using pointers?
+
+What is an "Invalid Pointer" vs a "Null Pointer"?
+
+How to fix a "Segmentation Fault" caused by pointers?
+
+What does it mean when a pointer is "unaligned"?
+
+How do you swap two pointers?
+
+What is the difference between a shallow copy and a deep copy of a pointer?
+
+Why is sizeof(ptr) not the size of the object pointed to?
+
+What is an "Array of Pointers" vs a "Pointer to an Array"?
+
+How to traverse a 2D array using pointer-to-pointer?
+
+What is the memory layout of char *arr[] = {"str1", "str2"}?
+
+How to implement a callback function using function pointers?
+
+What happens if you return a pointer to a local variable?
+
+What is the "Stack Smash" error?
+
+Why should you always set a pointer to NULL after free()?
+
+How to use offsetof macro in pointer arithmetic?
+
+
+Module 2: Arrays & Strings.
+
+Part 1: Array Fundamentals & Memory Layout (20 Questions)How does the compiler calculate the address of arr[i][j] in a 2D array?What is the difference between int arr[5] and int *arr = malloc(5 * sizeof(int)) in terms of memory location?Can you index an array with a negative number? Explain how arr[-1] works.Why is sizeof(arr) different when passed to a function versus declared in main()?What is the "decay" of an array into a pointer?How does a 3D array (arr[x][y][z]) map to linear memory?How do you find the number of elements in an array using sizeof?What is the difference between &arr and arr?Explain row-major vs. column-major order.Can you declare a zero-length array in C? (C99 flexible array members).How to initialize a multidimensional array with a single loop?What happens if you assign one array to another directly? (Why is it not allowed?)How to pass a 2D array to a function without knowing the column size?What is the padding in an array of structures?How to search for an element in an unsorted array in $O(n)$?How to find the largest and second-largest element in one pass?What is the logic behind the "Dutch National Flag" algorithm?How to rotate an array by $k$ positions efficiently?How to find a duplicate element in an array of size $n+1$ with elements $1$ to $n$?Explain the difference between stack-allocated arrays and heap-allocated arrays.Part 2: String Manipulations & Pitfalls (20 Questions)What is the significance of the null terminator \0?Why does printf("%s", str) stop printing at \0?What is the danger of strcat if the destination buffer is too small?How to implement strlen() manually using pointers?What is the difference between char *s = "Hello" and char s[] = "Hello"?How to reverse a string in-place using two pointers?How to check if a string is a palindrome?What happens if you modify a string literal?How to implement strcpy() and why is strncpy() safer?Explain the strstr() function and its time complexity.How to count the number of words in a sentence?How to remove all occurrences of a character from a string in-place?How to convert a string of digits to an integer (atoi)?What is the difference between fgets() and gets()?How to compare two strings without using strcmp()?How to concatenate two strings using only pointers?How to find the first non-repeating character in a string?What is a "String Buffer Overflow" and how do you prevent it?How to tokenize a string using strtok()?How to handle Unicode/multi-byte characters in C strings?Part 3: Advanced String/Array Algorithms (20 Questions)How to find the length of the longest substring without repeating characters?How to check if two strings are anagrams?How to implement a basic pattern matching algorithm (e.g., naive search)?How to find the intersection of two arrays?How to merge two sorted arrays into a third array?How to find the sum of a contiguous subarray that equals a target (Sliding Window)?How to implement Binary Search on a sorted array?How to perform a quick sort on an array of integers?How to find the missing number in an array of $1$ to $n$ using XOR?How to sort an array of $0$s, $1$s, and $2$s (DNF sort)?How to find the peak element in an array?How to flatten a 2D array into a 1D array?How to find the transpose of a matrix?How to multiply two matrices?How to check if a matrix is symmetric?How to count the frequency of each element in an array?How to find the "Majority Element" (Moore's Voting Algorithm)?How to move all zeros to the end of the array?How to find the subarray with the maximum sum (Kadane’s Algorithm)?How to check for array equality (element by element)?Part 4: Conceptual Traps & Boundary Cases (20 Questions)What is an off-by-one error in array loops?Why does scanf("%s", buf) lead to security vulnerabilities?What is the behavior of sizeof on an array parameter in a function?How to handle NULL pointers in string functions?What is the difference between char * and const char * in string functions?How to avoid stack overflow with large local arrays?What is the performance cost of dynamic allocation inside a loop?How to effectively use memmove() vs memcpy()?What happens if you try to sizeof a pointer to an array?Explain array indexing with [i] versus pointer dereferencing *(p+i).How to handle string literals in read-only memory sections?Why is gets() deprecated in modern C standards?How to properly null-terminate a string manually?What is the memory footprint of an array of strings?How to use sprintf to format strings?How to perform bounds checking manually?What happens if you pass an array of a different type than the function expects?How does arr[i] behave if arr is a pointer to an array?What is a "jagged array" and how to implement it?How to compare string literals vs. dynamic strings?Part 5: Practice & Debugging Patterns (20 Questions)How to trace an array-based recursive function?How to debug a buffer overflow using valgrind or a debugger?How to check if an array is sorted?How to implement a circular buffer using an array?How to represent a sparse matrix using arrays?How to handle string splitting with custom delimiters?How to reverse words in a sentence while keeping spaces intact?How to find the subarray with the product closest to $k$?How to sort an array using only pointers and swapping?How to implement a stack using an array?How to implement a queue using an array?How to convert a 2D array index to a 1D index?How to efficiently copy large blocks of memory?How to check for palindrome substrings?How to find common prefixes in a string array?How to generate all permutations of an array?How to find the median of two sorted arrays?How to search in a rotated sorted array?How to count occurrences of a pattern in a string?How to perform string compression (e.g., "aaabbc" $\rightarrow$ "a3b2c1")?
+
+
+Module 3: Structures, Unions, and Padding
+
+Part 1: Structure Padding & Alignment (20 Questions)
+Why does the compiler add padding bytes to a structure?
+
+What is the impact of structure member ordering on its total size?
+
+Calculate the size of a struct containing char, int, and char in different orders.
+
+How does pragma pack(1) change the memory layout?
+
+Explain the concept of "Alignment Requirements" for different data types (e.g., int usually requires 4-byte alignment).
+
+What is the difference between sizeof(struct) and the sum of sizeof its individual members?
+
+How does the compiler handle padding in nested structures?
+
+What is the size of an empty structure in C?
+
+How to manually calculate the offset of a member within a structure?
+
+What is the role of the offsetof macro?
+
+How does __attribute__((packed)) differ across different compilers?
+
+Why can padding improve CPU performance?
+
+How to reorder structure members to minimize padding?
+
+What happens to padding when a structure is passed to a function?
+
+How does a pointer to a struct member affect alignment?
+
+Does static padding change the size of the structure?
+
+Explain the alignment of a double versus a float in a structure.
+
+How to visualize the memory layout of a struct using gdb?
+
+What are the potential issues when copying structures with padding using memcpy?
+
+Why does hardware architecture (32-bit vs 64-bit) affect struct padding?
+
+Part 2: Unions & Memory Sharing (20 Questions)
+What is the fundamental difference between a struct and a union?
+
+How is the size of a union determined?
+
+What happens if you write to one union member and read from another?
+
+How to use a union to determine the "Endianness" of a machine?
+
+Can a union contain a struct as a member?
+
+What is an "Anonymous Union"?
+
+How to implement a "Tagged Union" (Discriminated Union) in C?
+
+Why are unions often used for memory-constrained embedded systems?
+
+Can you initialize a union with a value?
+
+What is the result of sizeof(union) if it contains a long long and a char?
+
+How to use a union for bit-level manipulation of a float or int?
+
+Is it safe to use a union for type punning?
+
+How does a union handle members of different sizes?
+
+Can a union have an array as a member?
+
+What is the memory layout of a union containing a large array?
+
+How does union interact with pointer arithmetic?
+
+Why are unions considered "unsafe" in strict coding standards?
+
+How to use a union to store heterogeneous data in an array?
+
+What is the lifetime of a member in a union?
+
+How to use a union to create a generic container for primitive types?
+
+Part 3: Nested & Self-Referential Structures (20 Questions)
+What is a "Self-Referential Structure" and why is it essential for Linked Lists?
+
+Why must a self-referential structure contain a pointer, not the struct itself?
+
+How to declare a structure that contains a pointer to itself?
+
+How does sizeof work for nested structures?
+
+How to initialize a nested structure?
+
+Can you have a structure containing an array of pointers to its own type?
+
+What is the memory footprint of a deep-nested structure?
+
+How to pass a nested structure to a function efficiently?
+
+What is the difference between struct A { struct B b; } and struct A { struct B *b; }?
+
+How to handle dynamic memory allocation for nested structures?
+
+What is the danger of circular references in structures?
+
+How to "flatten" a nested structure in memory?
+
+How does typedef improve readability for complex struct declarations?
+
+Can a structure contain a function pointer?
+
+How to use structure pointers for "Object-Oriented" encapsulation in C?
+
+How to compare two nested structures for equality?
+
+What happens if a nested struct is larger than the parent's alignment requirement?
+
+How to perform a deep copy of a structure with nested pointers?
+
+How to initialize a structure member using designated initializers?
+
+How to use structures for building complex data models like Trees or Graphs?
+
+Part 4: Advanced Structs & Bit-fields (20 Questions)
+What is a "Bit-field" and how does it save memory?
+
+How to declare a structure with specific bit-widths for members?
+
+Are bit-fields portable across different compilers/architectures?
+
+Can you have a pointer to a bit-field?
+
+What is the maximum width of a bit-field?
+
+How does the compiler layout bits within an integer?
+
+What is the impact of mixing bit-fields and regular members in a struct?
+
+Can bit-fields span across the boundary of an integer?
+
+How to use bit-fields for hardware register mapping?
+
+What is an "Unnamed Bit-field"?
+
+How to use a zero-width bit-field for padding?
+
+Are bit-fields signed or unsigned by default?
+
+How to perform bitwise operations on bit-fields?
+
+Why might accessing a bit-field be slower than an integer?
+
+What is the "Bit-field Packing" problem?
+
+How to use bit-fields to represent boolean flags compactly?
+
+How does the order of bit-fields affect memory usage?
+
+What happens if you exceed the total bits of the underlying type?
+
+How to use bit-fields to simulate a custom protocol header?
+
+Why is bit-field ordering implementation-defined?
+
+Part 5: Debugging & Performance Patterns (20 Questions)
+How to use offsetof to debug structure layout issues?
+
+How to check for memory leaks in a structure containing dynamic pointers?
+
+Why should you pass structures by pointer instead of value in functions?
+
+How to calculate the total size of a structure dynamically at runtime?
+
+What are the performance implications of frequent struct copying?
+
+How to optimize struct size for CPU cache locality?
+
+How to use __attribute__((aligned(n))) to force alignment?
+
+How to detect data corruption in structures?
+
+How to use structures for "State Machine" implementation?
+
+How to safely serialize a structure to a file or network?
+
+What are "Transparent Unions" in GCC?
+
+How to handle const members in a structure?
+
+How to implement a variable-length structure using a trailing array?
+
+Why is alignment critical for SIMD operations?
+
+How to identify padding bytes using a loop and memcpy?
+
+How to solve alignment issues when typecasting char * to struct *?
+
+How to manage global configurations using a central struct?
+
+What is the performance cost of frequent padding in arrays of structs?
+
+How to avoid "Strict Aliasing" violations when using unions?
+
+How to use structures to simplify argument passing to complex functions?
+
+Module 4: Storage Classes, Scope, and Preprocessor.
+
+Part 1: Storage Classes (static, extern, auto, register) (20 Questions)
+What is the default storage class for a variable declared inside a function?
+
+Explain the difference between internal and external linkage.
+
+How does static change the scope and lifetime of a local variable?
+
+What happens if you declare a static variable inside a header file?
+
+How does the extern keyword work across multiple source files?
+
+Can a static function be accessed from another file?
+
+What is the purpose of the register keyword in modern C?
+
+Where are auto variables stored?
+
+Explain the initialization behavior of static vs auto variables.
+
+Can you declare a global variable as static? What is the effect?
+
+How does static impact the recursion of a function?
+
+What is the risk of using extern for variables in large projects?
+
+Why can’t you take the address of a register variable?
+
+How to share a variable across files without making it global to the entire project?
+
+What is the "tentative definition" rule for global variables?
+
+How does static behave with global structures?
+
+Can a function be declared static and extern simultaneously? (Trick question)
+
+What is the "Lifetime" of a static variable compared to a global one?
+
+How to ensure a variable is only visible within a single source file?
+
+Why is register often ignored by modern optimizing compilers?
+
+Part 2: Scope and Visibility (20 Questions)
+What is the difference between "File Scope" and "Block Scope"?
+
+How does "Variable Shadowing" work in nested blocks?
+
+Can a local variable have the same name as a global variable? How is it accessed?
+
+What is "Function Prototype Scope"?
+
+How does the compiler resolve symbol names when multiple variables have the same name?
+
+What is the scope of a variable declared in a for loop initialization?
+
+How does linkage influence symbol visibility in the object file?
+
+What is the "Translation Unit" in C?
+
+How to access a shadowed global variable?
+
+What is the scope of a label in a goto statement?
+
+How to restrict function visibility to a single file?
+
+What is the "One Definition Rule" (ODR) and how does it relate to C?
+
+How does the linker handle multiple declarations of the same extern variable?
+
+What are the dangers of variable name collisions in large libraries?
+
+How to use static to hide implementation details in a library?
+
+What is the difference between declaring and defining a variable?
+
+How to manage symbol collisions in a project with many .c files?
+
+How does const interact with variable scope?
+
+What is the "Name Mangling" effect in C (or lack thereof)?
+
+How to use namespaces (simulated) in C to manage scope?
+
+Part 3: The C Preprocessor (#define, #ifdef, Macros) (20 Questions)
+How does the preprocessor differ from the compiler?
+
+What is the difference between #define and const?
+
+Why are macros with arguments dangerous? (The "Parenthesis" rule).
+
+Explain the "do-while(0)" trick in multi-line macros.
+
+What are the predefined macros in C (e.g., __FILE__, __LINE__, __DATE__)?
+
+How to conditionally compile code using #ifdef, #ifndef, and #endif?
+
+What is the use of the #undef directive?
+
+How does the # (stringize) operator work in macros?
+
+How does the ## (token pasting) operator work?
+
+Why is #define considered "type-unsafe"?
+
+What is a "Header Guard" and why is it necessary?
+
+How to use #pragma once as a shortcut for header guards?
+
+What is the difference between #include <file> and #include "file"?
+
+How to simulate a function with a macro?
+
+What are the performance benefits/drawbacks of macros vs functions?
+
+How to create a macro that acts like an assert?
+
+How to disable specific warnings using preprocessor directives?
+
+What is the "side-effect" problem in macros (e.g., SQUARE(i++))?
+
+How to use #error to stop compilation based on conditions?
+
+How to debug a macro expansion?
+
+Part 4: Compilation Stages & Memory Segments (20 Questions)
+What are the four stages of C compilation (Preprocessing, Compilation, Assembly, Linking)?
+
+What is stored in the .data segment vs the .bss segment?
+
+Where do static variables reside in memory?
+
+Where do global, uninitialized variables go?
+
+What is the difference between "text" and "data" segments?
+
+How does the linker arrange memory for different modules?
+
+What is an Object File (.o or .obj)?
+
+What is a Library (.a or .so/.dll)?
+
+How does the loader prepare an executable for execution?
+
+What is "Position Independent Code" (PIC)?
+
+Why are initialized global variables stored differently than uninitialized ones?
+
+What is a "Symbol Table"?
+
+How does the compiler handle extern references?
+
+What is the "Stack" vs the "Heap" vs the "Data Segment"?
+
+Where is constant data (like string literals) stored?
+
+How to force a variable into a specific memory section using attributes?
+
+What happens if you have a variable defined twice in different files without extern?
+
+What is the "Program Counter" and how does it relate to code segments?
+
+How does the operating system protect the code segment?
+
+How to identify segment sizes using tools like size or nm?
+
+Part 5: Advanced Preprocessing & Logic (20 Questions)
+How to create variadic macros (macros with ...)?
+
+How to implement a macro that counts arguments?
+
+How to use __builtin_expect for branch prediction optimization?
+
+How to prevent multiple inclusion of headers in complex projects?
+
+What is "Token Concatenation" and how to perform it safely?
+
+How to perform string conversion of numeric macros?
+
+How to manage configuration versions using macros?
+
+How to use macros to generate repetitive boilerplate code?
+
+How to use #line to change compiler-reported filenames?
+
+How to conditionally include code based on compiler features?
+
+What is the "X-Macro" technique?
+
+How to perform compile-time calculations using macros?
+
+How to avoid name clashes in macros using prefixes?
+
+How to implement a simple "logging" macro with file and line info?
+
+How to use defined() in #if expressions?
+
+How to simulate "Inline Functions" using macros?
+
+What is the effect of #pragma directives on compiler behavior?
+
+How to use # to print the name of a variable along with its value?
+
+How to handle large macro blocks without cluttering the code?
+
+How to use macros for platform-specific abstraction layers?
+
+Module 5: Recursion, Bitwise, and Control Flow.
+
+Part 1: Bitwise Operations (20 Questions)How do you check if the $n$-th bit of a number is set?How to clear the $n$-th bit of a number?How to toggle the $n$-th bit of a number?How to swap two numbers using XOR (^) without a temporary variable?How to check if a number is a power of 2 using bitwise operators?How to count the number of set bits (1s) in an integer?What is the difference between << and >> on signed vs. unsigned integers?How to multiply a number by 8 using bitwise operators?How to divide a number by 2 using bitwise operators?How to check if two numbers have opposite signs without using if?How to get the absolute value of an integer using bitwise operations?What is the result of x ^ x and x ^ 0?How to implement bitwise AND/OR/NOT using only NAND gates?How to set the rightmost zero bit to one?How to extract the lowest set bit of a number?How to reverse the bits of an integer?What is the difference between circular shift (rotate) and logical shift?How to convert a number to its two's complement manually?How to mask the last 4 bits of an integer?How to use bitwise operators to implement a simple encryption mask?Part 2: Recursion & The Call Stack (20 Questions)What happens on the stack when a function calls itself?What is a "Stack Overflow" error, and why does it occur in deep recursion?What is "Tail Recursion" and why is it memory-efficient?How to convert a recursive function to an iterative one (using a stack)?How to trace the "Winding" and "Unwinding" phases of recursion?What is the base case, and why is it mandatory?How does recursion differ from dynamic programming (memoization)?How to calculate the Fibonacci series recursively versus iteratively?What is the time complexity of a recursive function that makes two calls?How to reverse a linked list using recursion?How to traverse a tree structure (pre-order, in-order, post-order) recursively?Why is recursion often slower than iteration?How does the compiler optimize recursive calls?How to find the factorial of a number using recursion?What is the "Divide and Conquer" approach in recursion?Can recursion cause heap exhaustion instead of stack overflow?How to implement Tower of Hanoi recursively?How to print a string in reverse using recursion?What is "Mutual Recursion"?How to determine if recursion will terminate given specific inputs?Part 3: Control Flow & Logic Traps (20 Questions)What is "Fall-through" in a switch statement?Why is goto generally discouraged, and are there valid use cases?How does the ternary operator ? : differ from an if-else block?What is the difference between break, continue, and return?How to optimize a nested loop structure?What happens if you use an uninitialized variable in a while condition?What is the difference between do-while and while loops?Can you use a switch statement on a float or a string?How to use comma operators in for loops?What is an "Infinite Loop" and how to intentionally create one?How does the CPU branch prediction affect if-else performance?How to implement a state machine using switch-case?What is a "Dangling Else" problem?How to improve code readability in complex conditional logic?What is short-circuit evaluation in logical operators (&&, ||)?How does the compiler handle empty if statements?What is the performance impact of ternary operators on code size?How to exit nested loops efficiently?What is a "Loop Invariant" and how to hoist it?How to use switch with ranges (GCC extension)?Part 4: Advanced Logic & Performance (20 Questions)What is "Branch Prediction" and how to help the compiler?How to implement a for loop without using for?How to check for integer overflow in an addition?How to swap the values of two variables without a third variable (using arithmetic)?What is "Loop Unrolling" and how does it affect cache hits?How to find the parity of a number efficiently?How to compute the average of two numbers without overflow?How to determine the maximum of two numbers without branching?What is "Tail Call Optimization" (TCO) in C?How to implement a basic calculator using switch?What is the time complexity of binary search?How to perform an in-place sort without using extra space?How to find the GCD of two numbers recursively?What is the "Sieve of Eratosthenes" logic?How to represent a binary tree as an array?How to calculate powers using binary exponentiation?How to find the length of a linked list recursively?How to compare floating-point numbers correctly (epsilon comparison)?How to handle errors in functions using return codes?How to implement a "Retry" mechanism using loops?Part 5: "What is the Output?" (20 Questions)Predict output of nested loops with break in the inner loop.Predict output of recursive function with printf before and after call.What happens if you modify the loop variable inside the loop?Trace output of i++ vs ++i in a while condition.Predict output of switch with no break and a default case.Trace x = (a > b) ? a : b when a=b.What happens if you pass a negative number to a function expecting unsigned?Trace logic of a macro-defined loop.What is the behavior of for(int i=0; i<10; i++) vs for(int i=0; i<10; ++i)?Trace recursive function call stack depth.Predict output of bitwise shifts on negative numbers.Trace if (a = b) vs if (a == b).Predict output of a complex ternary nested expression.Trace logic of a loop that modifies an array element it is currently iterating over.Predict output of printf with mixed bitwise and logical operators.Trace behavior of goto jumping out of a loop.What is the output of sizeof applied to a function?Trace the execution of a recursive binary search.Predict the outcome of bitwise XOR on a set of duplicate numbers.Trace a function that uses a static variable to count recursive calls.
+
+
+Memory Tracing: The First 10 Challenges
+1. Pointer Incrementing
+
+C
+int a[] = {10, 20, 30};
+int *p = a;
+printf("%d %d", *p++, *p); 
+Tip: Trace whether the pointer increments before or after the dereference.
+
+2. Pointer vs Array Address
+
+C
+int arr[5];
+printf("%d", &arr + 1 - arr);
+Tip: Consider the "stride" of a pointer to an array vs. a pointer to an element.
+
+3. Pointer Arithmetic on Characters
+
+C
+char *ptr = "ABCDEF";
+ptr += 2;
+printf("%s", ptr);
+4. Pointer to Pointer
+
+C
+int x = 10;
+int *p = &x;
+int **q = &p;
+**q = 20;
+printf("%d", x);
+5. Array Decay
+
+C
+void func(int *arr) {
+    printf("%lu", sizeof(arr));
+}
+int main() {
+    int arr[10];
+    func(arr);
+}
+Tip: When an array is passed to a function, does it stay an array?
+
+6. Pointer subtraction
+
+C
+int arr[] = {10, 20, 30, 40};
+int *p = &arr[3];
+int *q = &arr[0];
+printf("%ld", p - q);
+7. Dereferencing logic
+
+C
+int a = 5, b = 10;
+int *p = &a;
+int *q = &b;
+p = q;
+*p = 20;
+printf("%d %d", a, b);
+8. Array indexing with pointers
+
+C
+int arr[] = {1, 2, 3};
+printf("%d", 2[arr]);
+Tip: Why is this valid in C?
+
+9. Const pointers
+
+C
+int a = 10, b = 20;
+int *const p = &a;
+p = &b; // Will this compile?
+10. Memory Allocation
+
+C
+int *p = (int *)malloc(sizeof(int) * 2);
+p[0] = 10;
+*(p + 1) = 20;
+free(p);
+printf("%d", p[1]); 
+Tip: Is accessing p[1] after free(p) undefined behavior or guaranteed to be 20?
+
+Visualization Aid
+To understand why these outputs happen, you must visualize how data resides in the RAM.
+
+How to approach these:
+Draw the memory: For every question, draw a small box for each variable.
+
+Track the Pointer: If you have a pointer, draw an arrow from the pointer variable box to the variable it points to. When the pointer is incremented (e.g., p++), move the tip of the arrow to the next memory block.
+
+The "Why" Factor: If you get one wrong, don't just note the answer. Ask: "Did the pointer move by 1 byte or by the size of the data type?" (This is the most common mistake in aptitude tests).
+
+Once you have analyzed these 10, let me know if you would like me to provide the correct outputs and the detailed memory trace for any that you found confusing. Would you like to proceed with the next 10, or do you want to break down these 10 first?
+
+
+
+
+
